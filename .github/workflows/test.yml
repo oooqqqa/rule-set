@@ -1,0 +1,19 @@
+name: Test converter
+on:
+  pull_request:
+  push:
+    paths: ['convert.py', 'test_convert.py', '.github/workflows/test.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest -v

@@ -1,0 +1,38 @@
+name: Update AdGuard rules
+on:
+  schedule:
+    - cron: '17 2 * * 1'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['convert.py', 'test_convert.py', '.github/workflows/update.yml']
+permissions:
+  contents: write
+concurrency:
+  group: update-adguard-rules
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest -v
+      - name: Download and convert
+        env:
+          RULES_BASE_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.event.repository.default_branch }}/rules
+        run: python convert.py --download --base-url "$RULES_BASE_URL"
+      - name: Commit updated rules
+        run: |
+          git add -- rules
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: update AdGuard DNS rules'
+          git push

@@ -1,0 +1,10 @@
+# Derived from AdGuard DNS filter
+# Source: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+# License: GPL-3.0; https://github.com/AdguardTeam/AdguardSDNSFilter/blob/master/LICENSE
+DOMAIN-SUFFIX,adsrvmedia.adk2.co
+DOMAIN-SUFFIX,bet.championat.com
+DOMAIN-SUFFIX,pixel.wp.pl
+DOMAIN-WILDCARD,*.deloton.com*
+DOMAIN-WILDCARD,*.oclasrv.com*
+DOMAIN-WILDCARD,deloton.com*
+DOMAIN-WILDCARD,oclasrv.com*

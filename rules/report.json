@@ -1,18 +1,18 @@
 {
   "source_url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
-  "source_sha256": "e742b10fd91f786b943ecaaa7d55a8b8d5d640370da98a97e8d3d7613bac1851",
-  "source_last_modified": "2026-11-04T14:11:11.506Z",
-  "source_rules": 188504,
+  "source_sha256": "12c0c6f3355b7ce20448b81173e72bc4c0d902eaf2ad4f053dc99af068a657fb",
+  "source_last_modified": "2026-11-09T08:15:06.380Z",
+  "source_rules": 188052,
   "counts": {
-    "block_source_rules": 188249,
+    "block_source_rules": 187795,
     "unsupported": 33,
     "block-important_source_rules": 5,
     "disabled_or_badfilter": 6,
-    "allow_source_rules": 211
+    "allow_source_rules": 213
   },
   "generated_rules": {
-    "block": 188782,
-    "allow": 221,
+    "block": 188327,
+    "allow": 223,
     "block-important": 7,
     "allow-important": 0
   },
